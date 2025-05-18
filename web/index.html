@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- ... (Keep other head elements) ... -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>Driving Quiz App</title>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    var flutterWebRenderer = "canvaskit";
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #e0f2f1; /* Light teal background */
+      overflow: hidden;
+    }
+
+    #loading-indicator {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease-out;
+    }
+
+    /* Traffic Light Casing */
+    .traffic-light {
+      background-color: #424242; /* Dark grey casing */
+      border-radius: 10px;
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Spacing between lights */
+      margin-bottom: 20px;
+      border: 3px solid #212121; /* Black border */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Individual Light */
+    .light {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #212121; /* Off state - very dark grey */
+      opacity: 0.3; /* Dimmed when off */
+      animation: traffic-light-sequence 3s infinite steps(1, end);
+    }
+
+    /* Colors for lights */
+    .light.red { background-color: #d32f2f; }
+    .light.yellow { background-color: #fbc02d; }
+    .light.green { background-color: #388e3c; }
+
+    /* Animation delays */
+    .light.red { animation-delay: 0s; }
+    .light.yellow { animation-delay: 1s; }
+    .light.green { animation-delay: 2s; }
+
+    /* Traffic Light Animation */
+    @keyframes traffic-light-sequence {
+      0%, 100% { /* Red */
+        opacity: 0.3;
+      }
+      33.33% { /* Red On */
+         opacity: 1;
+      }
+       33.34%, 66.66% { /* Yellow */
+          opacity: 0.3;
+       }
+       44.44% { /* Yellow On */
+          opacity: 1;
+       }
+       66.67%, 99.99% { /* Green */
+          opacity: 0.3;
+       }
+       77.77% { /* Green On */
+           opacity: 1;
+       }
+
+       /* Override based on delay - only one light is bright at a time */
+       /* This logic is handled by the animation-delay on each light class */
+        /* We simplify by making the 'on' state brief via steps() */
+    }
+
+     @keyframes traffic-light-sequence {
+         0% { /* Red On */
+            opacity: 1;
+         }
+         33.33% { /* Red Off / Yellow On */
+             opacity: 0.3;
+         }
+         33.34% {
+            opacity: 1; /* Make Yellow bright */
+         }
+         66.66% { /* Yellow Off / Green On */
+            opacity: 0.3;
+         }
+          66.67% {
+            opacity: 1; /* Make Green bright */
+         }
+          99.99% { /* Green off, cycle repeats */
+             opacity: 0.3;
+          }
+     }
+      /* Re-applying delays for clarity */
+      .light.red { animation-name: traffic-light-red; }
+      .light.yellow { animation-name: traffic-light-yellow; }
+      .light.green { animation-name: traffic-light-green; }
+
+      @keyframes traffic-light-red {
+         0%, 33% { opacity: 1; } /* Red on */
+         34%, 100% { opacity: 0.3; }
+      }
+       @keyframes traffic-light-yellow {
+         0%, 33% { opacity: 0.3; }
+         34%, 66% { opacity: 1; } /* Yellow on */
+          67%, 100% { opacity: 0.3;}
+      }
+       @keyframes traffic-light-green {
+         0%, 66% { opacity: 0.3; }
+         67%, 99% { opacity: 1; } /* Green on */
+         100% { opacity: 0.3; }
+      }
+
+
+
+    #loading-text {
+      color: #004d40; /* Dark teal text */
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    body.flutter-first-frame #loading-indicator {
+        opacity: 0;
+        pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+<div id="loading-indicator">
+  <div class="traffic-light">
+    <div class="light red"></div>
+    <div class="light yellow"></div>
+    <div class="light green"></div>
+  </div>
+  <div id="loading-text">Starting engine...<br><br>Please wait.</div>
+</div>
+<script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
