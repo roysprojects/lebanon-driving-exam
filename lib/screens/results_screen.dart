@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lebanon_driving_exam/screens/main_screen.dart';
 
 import '../providers/quiz_provider.dart';
 import '../widgets/responsive_center.dart';
@@ -100,7 +101,7 @@ class ResultsScreen extends ConsumerWidget {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()),
+                          builder: (context) => const MainScreen()),
                       (Route<dynamic> route) => false,
                     );
                   },

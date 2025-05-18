@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lebanon_driving_exam/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'screens/disclaimer_screen.dart';
@@ -112,7 +113,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Driving Quiz',
       theme: baseTheme,
-      home: showDisclaimer ? const DisclaimerScreen() : const HomeScreen(),
+      home: showDisclaimer ? const DisclaimerScreen() : const MainScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

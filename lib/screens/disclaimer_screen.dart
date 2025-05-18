@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lebanon_driving_exam/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/responsive_center.dart';
@@ -15,7 +16,7 @@ class DisclaimerScreen extends StatelessWidget {
     if (context.mounted) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     }
   }
