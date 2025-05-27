@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:lebanon_driving_exam/providers/theme_provider.dart';
 import '../widgets/responsive_center.dart';
 
 final appVersionProvider = FutureProvider<String>((ref) async {
@@ -37,6 +38,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final colorScheme = Theme.of(context).colorScheme;
+    final currentThemeMode = ref.watch(themeNotifierProvider);
+    final themeNotifier = ref.read(themeNotifierProvider.notifier);
 
     return Scaffold(
       body: ResponsiveCenter(
@@ -56,6 +59,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 style: textTheme.bodyMedium
                     ?.copyWith(color: colorScheme.onSurfaceVariant),
               ),
+            ),
+            const SizedBox(height: 16),
+            SwitchListTile(
+              title: Text('Dark Mode', style: textTheme.titleMedium),
+              value: currentThemeMode == ThemeMode.dark,
+              onChanged: (bool value) {
+                if (value) {
+                  themeNotifier.setThemeMode(ThemeModeSetting.dark);
+                } else {
+                  themeNotifier.setThemeMode(ThemeModeSetting.light);
+                }
+              },
+              secondary:
+                  Icon(Icons.brightness_6_outlined, color: colorScheme.secondary),
+                  activeColor: colorScheme.primary,
             ),
           ],
         ),
