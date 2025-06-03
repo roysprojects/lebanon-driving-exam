@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FirebaseAnalytics.instance.setAnalyticsCollectionEnabled(true);
   runApp(ProviderScope(
     child: MyApp(showDisclaimer: !hasSeenDisclaimer),
   ));
