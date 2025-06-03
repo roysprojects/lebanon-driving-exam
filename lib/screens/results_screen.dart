@@ -48,15 +48,15 @@ class ResultsScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(statusIcon, size: 80, color: statusColor),
+            Icon(statusIcon, size: 50, color: statusColor),
             const SizedBox(height: 24),
-            Text(
+            /*Text(
               resultTitle,
               style: textTheme.headlineMedium
                   ?.copyWith(fontWeight: FontWeight.bold, color: statusColor),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 16),*/
             Text(
               'Your Score:',
               style: textTheme.titleLarge
@@ -67,7 +67,7 @@ class ResultsScreen extends ConsumerWidget {
               style: textTheme.displaySmall
                   ?.copyWith(color: statusColor, fontWeight: FontWeight.bold),
             ),
-            if (totalQuestions > 0)
+            /*if (totalQuestions > 0)
               Padding(
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Text(
@@ -75,7 +75,7 @@ class ResultsScreen extends ConsumerWidget {
                   style: textTheme.titleMedium
                       ?.copyWith(color: colorScheme.onSurfaceVariant),
                 ),
-              ),
+              ),*/
             const SizedBox(height: 48),
             Column(
               mainAxisSize: MainAxisSize.min,
