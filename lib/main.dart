@@ -199,7 +199,7 @@ class MyApp extends ConsumerWidget {
                 side: BorderSide(color: darkColorScheme.outline))));
 
     return MaterialApp(
-      title: 'Driving Quiz',
+      title: 'Lebanon Driving Exam Practice',
       theme: lightTheme, 
       darkTheme: darkTheme, 
       themeMode: currentThemeMode,

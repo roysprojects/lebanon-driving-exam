@@ -17,7 +17,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   final Map<QuestionCategory, TextEditingController> _controllers = {};
   final _formKey = GlobalKey<FormState>();
   String _selectedLanguage = 'en';
-  String _selectedMode = 'General';
+  String _selectedMode = ' General ';
 
   @override
   void initState() {
@@ -28,12 +28,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final notifier = ref.read(quizProvider.notifier);
-      notifier.setSelectedMode('General');
+      notifier.setSelectedMode(' General ');
       notifier.setLanguage('en');
 
       setState(() {
         _selectedLanguage = 'en';
-        _selectedMode = 'General';
+        _selectedMode = ' General ';
 
         _initializeControllers(ref.read(quizProvider).availableCountsForMode);
       });
@@ -133,8 +133,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 SegmentedButton<String>(
                   segments: const <ButtonSegment<String>>[
                     ButtonSegment<String>(
-                        value: 'General',
-                        label: Text('General'),
+                        value: ' General ',
+                        label: Text(' General '),
                         icon: Icon(Icons.public)),
                     ButtonSegment<String>(
                         value: 'Cars',
@@ -169,7 +169,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 const SizedBox(height: 8),
                 SegmentedButton<String>(
                   segments: const <ButtonSegment<String>>[
-                    ButtonSegment<String>(value: 'en', label: Text('English')),
+                    ButtonSegment<String>(value: 'en', label: Text(' English ')),
                     ButtonSegment<String>(value: 'fr', label: Text('Français')),
                     ButtonSegment<String>(value: 'ar', label: Text('العربية')),
                   ],
@@ -188,7 +188,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 const SizedBox(height: 24),
                 const Divider(thickness: 1, height: 24),
                 Text(
-                  'Select Question Counts (Mode: $_selectedMode):',
+                  'Select Question Counts:',
                   style: textTheme.titleMedium
                       ?.copyWith(color: colorScheme.onSurfaceVariant),
                 ),
