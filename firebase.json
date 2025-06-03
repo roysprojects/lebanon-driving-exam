@@ -1,13 +1,1 @@
-{
-  "hosting": {
-    "source": ".",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "frameworksBackend": {
-      "region": "europe-west1"
-    }
-  }
-}
+{"hosting":{"source":".","ignore":["firebase.json","**/.*","**/node_modules/**"],"frameworksBackend":{"region":"europe-west1"}},"flutter":{"platforms":{"android":{"default":{"projectId":"lebanon-driving-practice","appId":"1:455094239164:android:fca706eb200247b43ff5b9","fileOutput":"android/app/google-services.json"}},"ios":{"default":{"projectId":"lebanon-driving-practice","appId":"1:455094239164:ios:29770f00d50bce703ff5b9","uploadDebugSymbols":false,"fileOutput":"ios/Runner/GoogleService-Info.plist"}},"macos":{"default":{"projectId":"lebanon-driving-practice","appId":"1:455094239164:ios:29770f00d50bce703ff5b9","uploadDebugSymbols":false,"fileOutput":"macos/Runner/GoogleService-Info.plist"}},"dart":{"lib/firebase_options.dart":{"projectId":"lebanon-driving-practice","configurations":{"android":"1:455094239164:android:fca706eb200247b43ff5b9","ios":"1:455094239164:ios:29770f00d50bce703ff5b9","macos":"1:455094239164:ios:29770f00d50bce703ff5b9","web":"1:455094239164:web:1a2354a631d685d63ff5b9","windows":"1:455094239164:web:f6633e4bdd36fe953ff5b9"}}}}}}

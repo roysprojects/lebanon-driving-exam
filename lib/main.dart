@@ -4,13 +4,20 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lebanon_driving_exam/providers/theme_provider.dart';
 import 'package:lebanon_driving_exam/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+
+
+import 'firebase_options.dart';
 import 'screens/disclaimer_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final bool hasSeenDisclaimer = prefs.getBool('hasSeenDisclaimer') ?? false;
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(ProviderScope(
     child: MyApp(showDisclaimer: !hasSeenDisclaimer),
   ));
@@ -40,7 +47,7 @@ class MyApp extends ConsumerWidget {
           bodyColor: lightColorScheme.onSurface,
           displayColor: lightColorScheme.onSurface,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 1.0,
           margin: const EdgeInsets.symmetric(vertical: 8.0),
           shape: RoundedRectangleBorder(
@@ -126,7 +133,7 @@ class MyApp extends ConsumerWidget {
           bodyColor: darkColorScheme.onSurface,
           displayColor: darkColorScheme.onSurface,
         ),
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           elevation: 1.0,
           margin: const EdgeInsets.symmetric(vertical: 8.0),
           shape: RoundedRectangleBorder(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "455094239164",
+    "project_id": "lebanon-driving-practice",
+    "storage_bucket": "lebanon-driving-practice.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455094239164:android:fca706eb200247b43ff5b9",
+        "android_client_info": {
+          "package_name": "com.royapps.lebanon_driving_exam.lebanon_driving_exam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDc083Eqf2R3YJrApNJcXCmBijs7rV9dY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
